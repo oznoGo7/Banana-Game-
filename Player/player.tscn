@@ -1,0 +1,401 @@
+[gd_scene load_steps=30 format=3 uid="uid://cretajd6d2hga"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_jxj0c"]
+[ext_resource type="Texture2D" uid="uid://ftx7awajg7hj" path="res://Animations/banana_idle.png" id="2_tqld8"]
+[ext_resource type="Texture2D" uid="uid://bb1oi3651ryjp" path="res://Animations/banana_walk.png" id="2_y2nmh"]
+[ext_resource type="Texture2D" uid="uid://bif6btwccjudu" path="res://Artwork/sword_01c.png" id="4_wvegx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dosaa"]
+atlas = ExtResource("2_tqld8")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuhxu"]
+atlas = ExtResource("2_tqld8")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1ni1"]
+atlas = ExtResource("2_tqld8")
+region = Rect2(0, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0myuy"]
+atlas = ExtResource("2_tqld8")
+region = Rect2(40, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7m3d"]
+atlas = ExtResource("2_y2nmh")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hijnt"]
+atlas = ExtResource("2_y2nmh")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3wsb"]
+atlas = ExtResource("2_y2nmh")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb5ud"]
+atlas = ExtResource("2_y2nmh")
+region = Rect2(0, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g3wh"]
+atlas = ExtResource("2_y2nmh")
+region = Rect2(40, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iddly"]
+atlas = ExtResource("2_y2nmh")
+region = Rect2(80, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btor2"]
+atlas = ExtResource("2_y2nmh")
+region = Rect2(0, 80, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d636f"]
+atlas = ExtResource("2_y2nmh")
+region = Rect2(40, 80, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsfgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dosaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuhxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1ni1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0myuy")
+}],
+"loop": true,
+"name": &"Banana Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7m3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hijnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3wsb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb5ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g3wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iddly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btor2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d636f")
+}],
+"loop": true,
+"name": &"Banana Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_nd41n"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Banana Sprite:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_wsfgg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Banana Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Banana Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Banana Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_48snj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Banana Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tabut"]
+resource_name = "Walk"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Banana Sprite:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("SpriteFrames_wsfgg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Banana Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Banana Walk"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Banana Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_8w5ba"]
+resource_name = "Sword Attack Right"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.39626, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37f4d"]
+_data = {
+"Idle": SubResource("Animation_nd41n"),
+"RESET": SubResource("Animation_48snj"),
+"Sword Attack Right": SubResource("Animation_8w5ba"),
+"Walk": SubResource("Animation_tabut")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swn2g"]
+size = Vector2(5.5, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6eo6g"]
+
+[sub_resource type="Animation" id="Animation_5yrjq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d6d6i"]
+resource_name = "Sword Attack Right"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.39626, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7yjbk"]
+resource_name = "Sword Attack Left"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.39626, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jopum"]
+_data = {
+"RESET": SubResource("Animation_5yrjq"),
+"Sword Attack Left": SubResource("Animation_7yjbk"),
+"Sword Attack Right": SubResource("Animation_d6d6i")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wde0c"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Banana Sprite:frame")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Banana Sprite:flip_h")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("Sword:position")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Sword:rotation")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("Sword/Sword Sprite:position")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath("Sword/Sword Sprite:rotation")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+properties/7/path = NodePath("Sword/Sword Sprite:flip_h")
+properties/7/spawn = true
+properties/7/replication_mode = 1
+properties/8/path = NodePath("Sword/CollisionShape2D:position")
+properties/8/spawn = true
+properties/8/replication_mode = 1
+properties/9/path = NodePath("Sword/CollisionShape2D:rotation")
+properties/9/spawn = true
+properties/9/replication_mode = 1
+properties/10/path = NodePath("Sword/CollisionShape2D:disabled")
+properties/10/spawn = true
+properties/10/replication_mode = 1
+properties/11/path = NodePath(".:visible")
+properties/11/spawn = true
+properties/11/replication_mode = 1
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_jxj0c")
+
+[node name="Banana Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wsfgg")
+animation = &"Banana Idle"
+frame = 1
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_37f4d")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 0)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_swn2g")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Coyote Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Sword" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
+position = Vector2(-13, -14)
+rotation = -0.785398
+scale = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_6eo6g")
+disabled = true
+
+[node name="Sword Sprite" type="Sprite2D" parent="Sword"]
+position = Vector2(-9, -10)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_wvegx")
+
+[node name="Attack Timer" type="Timer" parent="Sword"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Attack Anim" type="AnimationPlayer" parent="Sword"]
+libraries = {
+"": SubResource("AnimationLibrary_jopum")
+}
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(10, 0)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_swn2g")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_wde0c")
+
+[connection signal="timeout" from="Coyote Timer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="Sword/Attack Timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

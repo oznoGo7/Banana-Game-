@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1gec87xlgyin"]
+
+[ext_resource type="Script" path="res://Multiplayer/steam.gd" id="1_hx5ec"]
+[ext_resource type="Script" path="res://Main/main.gd" id="1_ro426"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ro426")
+
+[node name="Steam" type="Node" parent="."]
+script = ExtResource("1_hx5ec")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("..")
+
+[node name="Host" type="Button" parent="."]
+layout_mode = 2
+offset_right = 68.0
+offset_bottom = 31.0
+text = "Host"
+
+[node name="Refresh" type="Button" parent="."]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 68.0
+offset_bottom = 66.0
+text = "Refresh
+"
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -170.0
+offset_right = 280.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lobby Container" type="ScrollContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lobbies" type="VBoxContainer" parent="Control/Lobby Container"]
+layout_mode = 2
+
+[node name="Multiplayer Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Multiplayer Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]

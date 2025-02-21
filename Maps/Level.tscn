@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4sjn8vf67mik"]
+
+[ext_resource type="Script" path="res://Multiplayer/multiplayer_spawner.gd" id="1_jdnv6"]
+[ext_resource type="PackedScene" uid="uid://cretajd6d2hga" path="res://Player/player.tscn" id="2_j5bcr"]
+[ext_resource type="Texture2D" uid="uid://ch3dcj3plbqnh" path="res://icon.svg" id="3_ltkwj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_embgf"]
+size = Vector2(948, 20)
+
+[node name="Level" type="Node"]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath(".")
+script = ExtResource("1_jdnv6")
+playerScene = ExtResource("2_j5bcr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(128, 87)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ltkwj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(128, 64)
+shape = SubResource("RectangleShape2D_embgf")
+
+[node name="Check for Players Dead" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Check for Players Dead" to="MultiplayerSpawner" method="_on_check_for_players_dead_timeout"]
