@@ -83,6 +83,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Multiplayer Control" type="Control" parent="."]
+visible = false
 custom_minimum_size = Vector2(300, 500)
 layout_mode = 1
 anchors_preset = 6
@@ -93,29 +94,23 @@ anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Player List" type="Label" parent="Multiplayer Control"]
-layout_mode = 2
-offset_right = 300.0
-offset_bottom = 23.0
-text = "Player List"
-horizontal_alignment = 1
-
-[node name="-----------------" type="Label" parent="Multiplayer Control"]
-layout_mode = 2
-offset_top = 27.0
-offset_right = 300.0
-offset_bottom = 50.0
-text = "___________________________________________"
-horizontal_alignment = 1
-
 [node name="Lobby List" type="VBoxContainer" parent="Multiplayer Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 48.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Player List" type="Label" parent="Multiplayer Control/Lobby List"]
+layout_mode = 2
+text = "Player List"
+horizontal_alignment = 1
+
+[node name="-----------------" type="Label" parent="Multiplayer Control/Lobby List"]
+layout_mode = 2
+text = "___________________________________________"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Main Menu Control/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Main Menu Control/VBoxContainer/Refresh" to="." method="_on_refresh_pressed"]

@@ -21,6 +21,7 @@ var can_jump = true
 var can_attack = true
 var already_jumped = false
 var facing_right = false
+var is_attacking = false
 
 func _ready() -> void:
 	cam.enabled = is_multiplayer_authority()
@@ -76,11 +77,22 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Attack") and can_attack == true:
 		$Sword/CollisionShape2D.disabled = false
 		can_attack = false
+		is_attacking = true
 		if facing_right == false:
 			attack_anim.play("Sword Attack Right")
 		else:
 			attack_anim.play("Sword Attack Left")
+		await attack_anim.animation_finished
+		is_attacking = false
 		$"Sword/Attack Timer".start()
+	#Blocking
+	if Input.is_action_just_pressed("Blocking") and is_attacking == false:
+		if facing_right == false:
+			attack_anim.play("Blocking Left")
+		else:
+			attack_anim.play("Blocking Right")
+		await attack_anim.animation_finished
+		attack_anim.play("Sword Reset")
 	move_and_slide()
 
 func _on_coyote_timer_timeout() -> void:
